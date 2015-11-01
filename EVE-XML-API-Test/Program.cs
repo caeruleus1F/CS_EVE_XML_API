@@ -15,6 +15,7 @@ namespace EVE_XML_API_Test
 
         static void Main(string[] args)
         {
+            
             string keyID = "3890775";
             string vCode = "8w2EoSi0UyXXiSaagZnUN1ep2B6bkcFFCNd5CBsMnE7X5CHB3iHqYxEGubzBWP3c";
             string characterID = "91810030";
@@ -22,8 +23,10 @@ namespace EVE_XML_API_Test
             string typeid = "42";
 
             Console.Clear();
-            xmldoc = EVEXMLAPI.getInstance().Kills();
+            xmldoc = EVEXMLAPI.getInstance().AllianceList(true);
             Console.Write(xmldoc.InnerXml);
+
+
         }
     }
 }

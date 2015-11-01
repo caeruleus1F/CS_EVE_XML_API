@@ -1197,7 +1197,978 @@ namespace CS_EVE_XML_API
          * Corporation API Endpoints
          */
 
+        /// <summary>
+        /// Returns the ISK balance of a corporation.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">Character ID of a char with junior
+        /// accountant or higher access in the corp you want the balances 
+        /// for.</param>
+        /// <returns></returns>
+        public XmlDocument corpAccountBalance(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
 
+            sb.Append("https://api.eveonline.com/corp/AccountBalance.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of assets owned by the corp.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character with permission to
+        /// access the asset list.</param>
+        /// <returns></returns>
+        public XmlDocument corpAssetList(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/AssetList.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of corp contacts. This is accessible to any character
+        /// in any corporation. This call gives standings that the corp has set
+        /// towards other characters and entities.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpContactList(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/ContactList.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Shows corp container Audit Log.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpContainerLog(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/ContainerLog.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Lists contracts issued within the last month as well as all 
+        /// contracts marked as outstanding or in-progress.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpContracts(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/Contracts.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Lists items that a specified contract contains, use the contractID 
+        /// parameter to specify the contract.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="contractID">ID of the specified contract.</param>
+        /// <returns></returns>
+        public XmlDocument corpContractItems(string keyID, string vCode, string characterID, string contractID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/ContractItems.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID)
+                .Append("&contractID=").Append(contractID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of contract bids made by the corp.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpContractBids(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/ContractBids.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns attributes relating to a specific corporation.
+        /// </summary>
+        /// <param name="corporationID">Corporation ID to retrieve information
+        /// for.</param>
+        /// <param name="keyID">Optional - API Key ID. Must be a corporation 
+        /// access key. If not supplied, will return limited info.</param>
+        /// <param name="vCode">Optional - API verification code. If not
+        /// supplied, will return limited info.</param>
+        /// <returns></returns>
+        public XmlDocument corpCorporationSheet(string corporationID, string keyID = null, string vCode = null)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/CorporationSheet.xml.aspx?")
+                .Append("&corporationID=").Append(corporationID);
+
+            if (keyID != null && vCode != null)
+            {
+                sb.Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode);
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// If the corporation is enlisted in Factional Warfare, this will 
+        /// return the faction the corporation is enlisted in, the current rank 
+        /// and the highest rank the corporation ever had attained, and how many
+        /// kills and victory points the corporation obtained yesterday, in the
+        /// last week, and total. Otherwise returns an error code (125).
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpFacWarStats(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/FacWarStats.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of corp industry jobs.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpIndustryJobs(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/IndustryJobs.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the most recent 100 kills made by players in the corp.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="beforeKillID">Optional - Returns kills before the
+        /// specified ID.</param>
+        /// <returns></returns>
+        public XmlDocument corpKillLog(string keyID, string vCode, string characterID, string beforeKillID = null)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/KillLog.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            if (beforeKillID != null)
+            {
+                sb.Append(beforeKillID);
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Call will return the items name (or its type name if no user defined 
+        /// name exists) as well as their x,y,z coordinates. Coordinates should
+        /// all be 0 for valid locations located inside of stations.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="IDs">Comma-separated list of itemIDs.</param>
+        /// <returns></returns>
+        public XmlDocument corpLocations(string keyID, string vCode, string characterID, string IDs)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/Locations.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID)
+                .Append("IDs=").Append(IDs);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of market orders that are either not expired or have
+        /// expired in the past week (at most).
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="orderID">Optional - market order ID to fetch an order
+        /// that is no longer open.</param>
+        /// <returns></returns>
+        public XmlDocument corpMarketOrders(string keyID, string vCode, string characterID, string orderID = null)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/MarketOrders.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            if (orderID != null)
+            {
+                sb.Append("orderID=").Append(orderID);
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of medals created by this corporation.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpMedals(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/Medals.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of medals issued to members.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Limited access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpMemberMedals(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/MemberMedals.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the security roles of members in a corporation.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpMemberSecurity(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/MemberSecurity.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns info about corporation role changes for members and who did it.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpMemberSecurityLog(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/MemberSecurityLog.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// For player corps this returns the member list (same as in game). 
+        /// Otherwise returns an error code (207).
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="extendedVersion">Optional - pass true for the extended
+        /// version.</param>
+        /// <returns></returns>
+        public XmlDocument corpMemberTracking(string keyID, string vCode, bool extendedVersion = false)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/MemberTracking.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode);
+
+            if (extendedVersion == true)
+            {
+                sb.Append("&extended=1");
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns information about the corporation’s outposts, which will
+        /// require a full API key from the a director(or CEO) of the 
+        /// corporation which the outpost belongs to.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpOutpostList(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/OutpostList.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// If a service has default values, they will not be shown.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="itemID">Item ID of the outpost listed in OutpostList 
+        /// API call.</param>
+        /// <returns></returns>
+        public XmlDocument corpOutpostServiceDetail(string keyID, string vCode, string characterID, string itemID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/OutpostServiceDetail.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the character and corporation share holders of a corporation.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the Director or CEO making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpShareholders(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/Shareholders.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the standings from NPC corporations and factions as well 
+        /// as agents.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the Director or CEO making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpStandings(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/Standings.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Shows the settings and fuel status of a POS.
+        /// </summary>
+        /// <param name="keyID">API key ID (must be director's Corporation key)</param>
+        /// <param name="vCode">Verification code.</param>
+        /// <param name="itemID">ItemID of the POS as given in the starbase list.</param>
+        /// <returns></returns>
+        public XmlDocument corpStarbaseDetail(string keyID, string vCode, string itemID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/StarbaseDetail.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&itemID=").Append(itemID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the list and states of POSs.
+        /// </summary>
+        /// <param name="keyID">API Key ID (must be a Corporation key).</param>
+        /// <param name="vCode">API Verification Code.</param>
+        /// <returns></returns>
+        public XmlDocument corpStarbaseList(string keyID, string vCode)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/StarbaseList.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the titles of a corporation.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the Director or CEO making the request.</param>
+        /// <returns></returns>
+        public XmlDocument corpTitles(string keyID, string vCode, string characterID)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/corp/Titles.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of journal transactions for corporation.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="accountKey">For corps, first wallet starts at 1000.</param>
+        /// <param name="fromID">Optional - specify a journal entry to retrieve
+        /// previous listings from.</param>
+        /// <param name="rowCount">Optional - default is 50, up to 2560.</param>
+        /// <returns></returns>
+        public XmlDocument corpWalletJournal(string keyID, string vCode, string characterID,
+            string accountKey, string fromID = null, int rowCount = 50)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            if (rowCount > 2560)
+            {
+                rowCount = 2560;
+            }
+
+            sb.Append("https://api.eveonline.com/corp/WalletJournal.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID)
+                .Append("&accountKey=").Append(accountKey)
+                .Append("&rowCount=").Append(rowCount.ToString());
+
+            if (fromID != null)
+            {
+                sb.Append("&fromID=").Append(fromID);
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns wallet transactions for a corp.
+        /// </summary>
+        /// <param name="keyID">UserID of account for authentication.</param>
+        /// <param name="vCode">Full access API key of account.</param>
+        /// <param name="characterID">ID of the character making the request.</param>
+        /// <param name="accountKey">For corps, first wallet starts at 1000.</param>
+        /// <param name="fromID">Optional - specify a journal entry to retrieve
+        /// previous listings from.</param>
+        /// <param name="rowCount">Optional - default is 50, up to 2560.</param>
+        /// <returns></returns>
+        public XmlDocument corpWalletTransactions(string keyID, string vCode, string characterID,
+            string accountKey, string fromID = null, int rowCount = 50)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            if (rowCount > 2560)
+            {
+                rowCount = 2560;
+            }
+
+            sb.Append("https://api.eveonline.com/corp/WalletTransactions.xml.aspx?")
+                .Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode)
+                .Append("&characterID=").Append(characterID)
+                .Append("&accountKey=").Append(accountKey)
+                .Append("&rowCount=").Append(rowCount);
+
+            if (fromID != null)
+            {
+                sb.Append("&fromID=").Append(fromID);
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
 
         /*
          * EVE API Endpoints
