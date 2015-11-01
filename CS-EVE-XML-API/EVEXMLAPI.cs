@@ -23,7 +23,7 @@ using System.IO;
 namespace CS_EVE_XML_API
 {
     /// <summary>
-    /// Thread-safe singleton allows the user to interface with the EVE Online
+    /// Thread-safe singleton allows the user to interface with the EVE Online<para/>
     /// Developer API with a light-weight dynamically-linked library.
     /// </summary>
     public class EVEXMLAPI
@@ -63,14 +63,15 @@ namespace CS_EVE_XML_API
          */
 
         /// <summary>
-        /// Returns basic account information including when the subscription 
-        /// lapses, total play time in minutes, total times logged on and date 
-        /// of account creation. In the case of game time code accounts it will 
+        /// Returns basic account information including when the subscription<para/> 
+        /// lapses, total play time in minutes, total times logged on and date <para/>
+        /// of account creation. In the case of game time code accounts it will <para/>
         /// also look for available offers of time codes.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for 
         /// authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification Code for<para/>
+        /// the Customizable API Key.</param>
         /// <returns></returns>
         public XmlDocument AccountStatus(string keyID, string vCode)
         {
@@ -98,11 +99,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns information about the API key and a list of the characters 
+        /// Returns information about the API key and a list of the characters <para/>
         /// exposed by it.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification Code<para/>
+        /// for the Customizable API Key.</param>
         /// <returns></returns>
         public XmlDocument APIKeyInfo(string keyID, string vCode)
         {
@@ -133,7 +135,8 @@ namespace CS_EVE_XML_API
         /// Returns a list of all characters on an account.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <returns></returns>
         public XmlDocument Characters(string keyID, string vCode)
         {
@@ -165,7 +168,7 @@ namespace CS_EVE_XML_API
          */
 
         /// <summary>
-        /// Returns the mask and groupings for calls under the new Customizable 
+        /// Returns the mask and groupings for calls under the new Customizable <para/>
         /// API Keys authentication method.
         /// </summary>
         /// <returns></returns>
@@ -200,7 +203,8 @@ namespace CS_EVE_XML_API
         /// Returns the ISK balance of a character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument AccountBalance(string keyID, string vCode, string characterID)
@@ -233,7 +237,8 @@ namespace CS_EVE_XML_API
         /// Returns a list of assets owned by a character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument AssetList(string keyID, string vCode, string characterID)
@@ -263,12 +268,13 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a list of all invited attendees for a given event.
-        /// A call to Upcoming Calendar Events must be made prior to calling 
+        /// Returns a list of all invited attendees for a given event.<para/>
+        /// A call to Upcoming Calendar Events must be made prior to calling <para/>
         /// this API. Otherwise you will receive an error.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="eventID">The ID of the event to list.</param>
         /// <returns></returns>
@@ -303,7 +309,8 @@ namespace CS_EVE_XML_API
         /// Returns attributes relating to a specific character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument CharacterSheet(string keyID, string vCode, string characterID)
@@ -333,12 +340,13 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the character's contact and watch lists, incl. agents and 
-        /// respective standings set by the character. Also includes that 
+        /// Returns the character's contact and watch lists, incl. agents and <para/>
+        /// respective standings set by the character. Also includes that <para/>
         /// character's corporation and/or alliance contacts.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument ContactList(string keyID, string vCode, string characterID)
@@ -368,10 +376,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Lists the notifications received about having been added to someone's contact list.
+        /// Lists the notifications received about having been added to someone's<para/>
+        /// contact list.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument ContactNotifications(string keyID, string vCode, string characterID)
@@ -404,7 +414,8 @@ namespace CS_EVE_XML_API
         /// Lists the personal contracts for a character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification Code<para/>
+        /// for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="contractID">Optional - The ID of a specific contract.</param>
         /// <returns></returns>
@@ -443,7 +454,8 @@ namespace CS_EVE_XML_API
         /// Lists items that a specified contract contains.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="contractID">The ID of contract to be listed.</param>
         /// <returns></returns>
@@ -478,7 +490,8 @@ namespace CS_EVE_XML_API
         /// Lists the latest bids that have been made to any recent auctions.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument ContractBids(string keyID, string vCode, string characterID)
@@ -508,14 +521,15 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// If the character is enlisted in Factional Warfare, this will return 
-        /// the faction the character is enlisted in, the current rank and the 
-        /// highest rank the character ever had attained, and how many kills 
-        /// and victory points the character obtained yesterday, in the last 
+        /// If the character is enlisted in Factional Warfare, this will return <para/>
+        /// the faction the character is enlisted in, the current rank and the <para/>
+        /// highest rank the character ever had attained, and how many kills <para/>
+        /// and victory points the character obtained yesterday, in the last <para/>
         /// week, and total. Otherwise returns an error code.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument FacWarStats(string keyID, string vCode, string characterID)
@@ -548,7 +562,8 @@ namespace CS_EVE_XML_API
         /// Returns a list of industry jobs.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument IndustryJobs(string keyID, string vCode, string characterID)
@@ -578,15 +593,16 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a list of kills where this character received the final 
-        /// blow and losses of this character. For characters, returns the 
-        /// most recent 25, for corporations, the most recent 100. You can 
+        /// Returns a list of kills where this character received the final <para/>
+        /// blow and losses of this character. For characters, returns the <para/>
+        /// most recent 25, for corporations, the most recent 100. You can <para/>
         /// scroll back with the beforeKillID parameter.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
-        /// <param name="beforeKillID">Optional - if present, return the most 
+        /// <param name="beforeKillID">Optional - if present, return the most <para/>
         /// recent kills before the specified killID.</param>
         /// <returns></returns>
         public XmlDocument KillLog(string keyID, string vCode, string characterID, string beforeKillID = null)
@@ -621,23 +637,24 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Call will return the items name (or its type name if no user 
-        /// defined name exists) as well as their x,y,z coordinates. 
-        /// Coordinates should all be 0 for valid locations located inside of 
-        /// stations.
-        /// These can ONLY be valid locationIDs (that is items which have 
-        /// meaningful location coordinates. (0, 0, 0) returned for items in 
-        /// hangars that could have valid coordinates) and must be owned by the 
-        /// character or corporation associated with the key. Any attempts at 
-        /// illegal input will result in a completely empty return. This is 
-        /// done to avoid any sort of scraping or giving out more information 
-        /// than is appropriate (f.e. validating that a given itemID is indeed 
-        /// a valid location but does not belong to the owner associated with 
-        /// the key). To differentiate this form of invalid input from other 
+        /// Call will return the items name (or its type name if no user <para/>
+        /// defined name exists) as well as their x,y,z coordinates. <para/>
+        /// Coordinates should all be 0 for valid locations located inside of <para/>
+        /// stations.<para/>
+        /// These can ONLY be valid locationIDs (that is items which have <para/>
+        /// meaningful location coordinates. (0, 0, 0) returned for items in <para/>
+        /// hangars that could have valid coordinates) and must be owned by the <para/>
+        /// character or corporation associated with the key. Any attempts at <para/>
+        /// illegal input will result in a completely empty return. This is <para/>
+        /// done to avoid any sort of scraping or giving out more information <para/>
+        /// than is appropriate (f.e. validating that a given itemID is indeed <para/>
+        /// a valid location but does not belong to the owner associated with <para/>
+        /// the key). To differentiate this form of invalid input from other <para/>
         /// invalid input error code 135 will be thrown for this error.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="IDs">Comma separated list of itemIDs</param>
         /// <returns></returns>
@@ -669,15 +686,17 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the bodies of headers that have already been fetched with 
-        /// the MailMessages call. It will also return a list of missing IDs 
-        /// that could not be accessed. Bodies cannot be accessed if you have 
+        /// Returns the bodies of headers that have already been fetched with <para/>
+        /// the MailMessages call. It will also return a list of missing IDs <para/>
+        /// that could not be accessed. Bodies cannot be accessed if you have <para/>
         /// not called for their headers recently.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
-        /// <param name="IDs">Comma-separated list of IDs obtained from the MailMessages endpoint.</param>
+        /// <param name="IDs">Comma-separated list of IDs obtained from the<para/>
+        /// MailMessages endpoint.</param>
         /// <returns></returns>
         public XmlDocument MailBodies(string keyID, string vCode, string characterID, string IDs)
         {
@@ -707,11 +726,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a listing all mailing lists the character is currently a 
+        /// Returns a listing all mailing lists the character is currently a <para/>
         /// member of.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument MailingLists(string keyID, string vCode, string characterID)
@@ -744,7 +764,8 @@ namespace CS_EVE_XML_API
         /// Returns the message headers for mail.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument MailMessages(string keyID, string vCode, string characterID)
@@ -777,7 +798,8 @@ namespace CS_EVE_XML_API
         /// Returns a list of market orders for the character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="orderID">Optional - returns info on a specific order ID.</param>
         /// <returns></returns>
@@ -816,7 +838,8 @@ namespace CS_EVE_XML_API
         /// Returns a list of medals the character has.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument Medals(string keyID, string vCode, string characterID)
@@ -849,7 +872,8 @@ namespace CS_EVE_XML_API
         /// Returns the message headers for notifications.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument Notifications(string keyID, string vCode, string characterID)
@@ -879,11 +903,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the message bodies for notifications. Headers need to be 
+        /// Returns the message bodies for notifications. Headers need to be <para/>
         /// requested via /char/Notifications.xml.aspx first.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="IDs">Comma-separated list of notification IDs.</param>
         /// <returns></returns>
@@ -918,7 +943,8 @@ namespace CS_EVE_XML_API
         /// Returns information about agents character is doing research with.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument Research(string keyID, string vCode, string characterID)
@@ -951,7 +977,8 @@ namespace CS_EVE_XML_API
         /// Returns the skill the character is currently training.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument SkillInTraining(string keyID, string vCode, string characterID)
@@ -984,7 +1011,8 @@ namespace CS_EVE_XML_API
         /// Returns the skill queue of the character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument SkillQueue(string keyID, string vCode, string characterID)
@@ -1014,11 +1042,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the standings towards a character from agents, NPC 
+        /// Returns the standings towards a character from agents, NPC <para/>
         /// corporations and factions.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument Standings(string keyID, string vCode, string characterID)
@@ -1050,7 +1079,8 @@ namespace CS_EVE_XML_API
         /// Returns a list of all upcoming calendar events for a given character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <returns></returns>
         public XmlDocument UpcomingCalendarEvents(string keyID, string vCode, string characterID)
@@ -1083,14 +1113,14 @@ namespace CS_EVE_XML_API
         /// Returns a list of wallet journal transactions for character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
-        /// <param name="accountKey">Optional - for corp wallets with first wallet starting at 1000.</param>
-        /// <param name="fromID">Optional - for transactions originating from a specific ID.</param>
+        /// <param name="fromID">Optional - for returning transactions before a specific ID.</param>
         /// <param name="rowCount">Optional - specifies the amount of rows to return, up to 2560. Default 50.</param>
         /// <returns></returns>
-        public XmlDocument WalletJournal(string keyID, string vCode, string characterID,
-            int accountKey = 0, long fromID = 0, int rowCount = 50)
+        public XmlDocument WalletJournal(string keyID, string vCode, string characterID, 
+            long fromID = 0, int rowCount = 50)
         {
             XmlDocument xmldoc = new XmlDocument();
             WebClient web = new WebClient();
@@ -1101,11 +1131,6 @@ namespace CS_EVE_XML_API
                 .Append("keyID=").Append(keyID)
                 .Append("&vCode=").Append(vCode)
                 .Append("&characterID=").Append(characterID);
-
-            if (accountKey >= 1000 && accountKey <= 1006)
-            {
-                sb.Append("&accountKey=").Append(accountKey.ToString());
-            }
 
             if (fromID != 0)
             {
@@ -1140,11 +1165,13 @@ namespace CS_EVE_XML_API
         /// Returns market transactions for a character.
         /// </summary>
         /// <param name="keyID">The ID of the Customizable API Key for authentication.</param>
-        /// <param name="vCode">The user defined or CCP generated Verification Code for the Customizable API Key.</param>
+        /// <param name="vCode">The user defined or CCP generated Verification<para/>
+        /// Code for the Customizable API Key.</param>
         /// <param name="characterID">The ID of the character for the requested data.</param>
         /// <param name="accountKey">Optional - for corp wallets with first wallet starting at 1000.</param>
         /// <param name="fromID">Optional - for transactions originating from a specific ID.</param>
-        /// <param name="rowCount">Optional - specifies the amount of rows to return, up to 2560. Default 1000.</param>
+        /// <param name="rowCount">Optional - specifies the amount of rows to <para/>
+        /// return, up to 2560. Default 1000.</param>
         /// <returns></returns>
         public XmlDocument WalletTransactions(string keyID, string vCode, string characterID,
             int accountKey = 0, long fromID = 0, int rowCount = 1000)
@@ -1202,7 +1229,7 @@ namespace CS_EVE_XML_API
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
         /// <param name="vCode">Full access API key of account.</param>
-        /// <param name="characterID">Character ID of a char with junior
+        /// <param name="characterID">Character ID of a char with junior<para/>
         /// accountant or higher access in the corp you want the balances 
         /// for.</param>
         /// <returns></returns>
@@ -1237,7 +1264,7 @@ namespace CS_EVE_XML_API
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
         /// <param name="vCode">Full access API key of account.</param>
-        /// <param name="characterID">ID of the character with permission to
+        /// <param name="characterID">ID of the character with permission to<para/>
         /// access the asset list.</param>
         /// <returns></returns>
         public XmlDocument corpAssetList(string keyID, string vCode, string characterID)
@@ -1267,8 +1294,8 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a list of corp contacts. This is accessible to any character
-        /// in any corporation. This call gives standings that the corp has set
+        /// Returns a list of corp contacts. This is accessible to any character<para/>
+        /// in any corporation. This call gives standings that the corp has set<para/>
         /// towards other characters and entities.
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -1335,7 +1362,7 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Lists contracts issued within the last month as well as all 
+        /// Lists contracts issued within the last month as well as all <para/>
         /// contracts marked as outstanding or in-progress.
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -1369,7 +1396,7 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Lists items that a specified contract contains, use the contractID 
+        /// Lists items that a specified contract contains, use the contractID <para/>
         /// parameter to specify the contract.
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -1440,11 +1467,11 @@ namespace CS_EVE_XML_API
         /// <summary>
         /// Returns attributes relating to a specific corporation.
         /// </summary>
-        /// <param name="corporationID">Corporation ID to retrieve information
+        /// <param name="corporationID">Corporation ID to retrieve information<para/>
         /// for.</param>
-        /// <param name="keyID">Optional - API Key ID. Must be a corporation 
+        /// <param name="keyID">Optional - API Key ID. Must be a corporation <para/>
         /// access key. If not supplied, will return limited info.</param>
-        /// <param name="vCode">Optional - API verification code. If not
+        /// <param name="vCode">Optional - API verification code. If not<para/>
         /// supplied, will return limited info.</param>
         /// <returns></returns>
         public XmlDocument corpCorporationSheet(string corporationID, string keyID = null, string vCode = null)
@@ -1478,10 +1505,10 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// If the corporation is enlisted in Factional Warfare, this will 
-        /// return the faction the corporation is enlisted in, the current rank 
-        /// and the highest rank the corporation ever had attained, and how many
-        /// kills and victory points the corporation obtained yesterday, in the
+        /// If the corporation is enlisted in Factional Warfare, this will <para/>
+        /// return the faction the corporation is enlisted in, the current rank <para/>
+        /// and the highest rank the corporation ever had attained, and how many<para/>
+        /// kills and victory points the corporation obtained yesterday, in the<para/>
         /// last week, and total. Otherwise returns an error code (125).
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -1588,8 +1615,8 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Call will return the items name (or its type name if no user defined 
-        /// name exists) as well as their x,y,z coordinates. Coordinates should
+        /// Call will return the items name (or its type name if no user defined <para/>
+        /// name exists) as well as their x,y,z coordinates. Coordinates should<para/>
         /// all be 0 for valid locations located inside of stations.
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -1625,13 +1652,13 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a list of market orders that are either not expired or have
+        /// Returns a list of market orders that are either not expired or have<para/>
         /// expired in the past week (at most).
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
         /// <param name="vCode">Full access API key of account.</param>
         /// <param name="characterID">ID of the character making the request.</param>
-        /// <param name="orderID">Optional - market order ID to fetch an order
+        /// <param name="orderID">Optional - market order ID to fetch an order<para/>
         /// that is no longer open.</param>
         /// <returns></returns>
         public XmlDocument corpMarketOrders(string keyID, string vCode, string characterID, string orderID = null)
@@ -1798,12 +1825,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// For player corps this returns the member list (same as in game). 
+        /// For player corps this returns the member list (same as in game). <para/>
         /// Otherwise returns an error code (207).
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
         /// <param name="vCode">Full access API key of account.</param>
-        /// <param name="extendedVersion">Optional - pass true for the extended
+        /// <param name="extendedVersion">Optional - pass true for the extended<para/>
         /// version.</param>
         /// <returns></returns>
         public XmlDocument corpMemberTracking(string keyID, string vCode, bool extendedVersion = false)
@@ -1837,8 +1864,8 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns information about the corporation’s outposts, which will
-        /// require a full API key from the a director(or CEO) of the 
+        /// Returns information about the corporation’s outposts, which will<para/>
+        /// require a full API key from the a director(or CEO) of the <para/>
         /// corporation which the outpost belongs to.
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -1940,7 +1967,7 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the standings from NPC corporations and factions as well 
+        /// Returns the standings from NPC corporations and factions as well <para/>
         /// as agents.
         /// </summary>
         /// <param name="keyID">UserID of account for authentication.</param>
@@ -2077,7 +2104,7 @@ namespace CS_EVE_XML_API
         /// <param name="vCode">Full access API key of account.</param>
         /// <param name="characterID">ID of the character making the request.</param>
         /// <param name="accountKey">For corps, first wallet starts at 1000.</param>
-        /// <param name="fromID">Optional - specify a journal entry to retrieve
+        /// <param name="fromID">Optional - specify a journal entry to retrieve<para/>
         /// previous listings from.</param>
         /// <param name="rowCount">Optional - default is 50, up to 2560.</param>
         /// <returns></returns>
@@ -2127,7 +2154,7 @@ namespace CS_EVE_XML_API
         /// <param name="vCode">Full access API key of account.</param>
         /// <param name="characterID">ID of the character making the request.</param>
         /// <param name="accountKey">For corps, first wallet starts at 1000.</param>
-        /// <param name="fromID">Optional - specify a journal entry to retrieve
+        /// <param name="fromID">Optional - specify a journal entry to retrieve<para/>
         /// previous listings from.</param>
         /// <param name="rowCount">Optional - default is 50, up to 2560.</param>
         /// <returns></returns>
@@ -2177,7 +2204,7 @@ namespace CS_EVE_XML_API
         /// <summary>
         /// Returns a list of alliances in EVE.
         /// </summary>
-        /// <param name="alliancesOnly">Optional - pass in true for a list of
+        /// <param name="alliancesOnly">Optional - pass in true for a list of<para/>
         /// alliances without member corps.</param>
         /// <returns></returns>
         public XmlDocument AllianceList(bool alliancesOnly = false)
@@ -2236,11 +2263,11 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the ownerID for a given character, faction, alliance or 
-        /// corporation name, or the typeID for other objects such as stations,
+        /// Returns the ownerID for a given character, faction, alliance or <para/>
+        /// corporation name, or the typeID for other objects such as stations,<para/>
         /// solar systems, planets, etc.
         /// </summary>
-        /// <param name="names">Comma-separated list of character names
+        /// <param name="names">Comma-separated list of character names<para/>
         /// to query.</param>
         /// <returns></returns>
         public XmlDocument CharacterID(string names)
@@ -2268,17 +2295,17 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Without a supplied API key it will return the same data as a show 
-        /// info call on the character would do in the client. With a limited 
-        /// API key it will add total skill points as well as the current ship
-        /// you are in and its name. Supplied with a full API key your account 
-        /// balance and your last known location (cached) will be added to the 
+        /// Without a supplied API key it will return the same data as a show <para/>
+        /// info call on the character would do in the client. With a limited <para/>
+        /// API key it will add total skill points as well as the current ship<para/>
+        /// you are in and its name. Supplied with a full API key your account <para/>
+        /// balance and your last known location (cached) will be added to the <para/>
         /// return.
         /// </summary>
         /// <param name="characterID">Character ID of the player.</param>
         /// <param name="keyID">Optional - Key ID of account for authentication.
         /// </param>
-        /// <param name="vCode">Optional - Limited or Full access API key of 
+        /// <param name="vCode">Optional - Limited or Full access API key of <para/>
         /// account.</param>
         /// <returns></returns>
         public XmlDocument CharacterInfo(string characterID, string keyID = null, string vCode = null)
@@ -2314,13 +2341,13 @@ namespace CS_EVE_XML_API
         /// <summary>
         /// Returns the name associated with an characterID.
         /// </summary>
-        /// <param name="ids">Comma-separated list of ownerIDs (characterID, 
-        /// agentID, corporationID, allianceID, or factionID) and typeIDs to 
-        /// query. A hard maximum of 250 IDs passed in. Might change in the 
-        /// future depending on live results. Any instances of repeated ids in 
-        /// the string will throw immediate errors with no returns. If an ID is
-        /// passed into the call that does not resolve the call will not return 
-        /// any results regardless of the validity of other ids. Trailing commas
+        /// <param name="ids">Comma-separated list of ownerIDs (characterID, <para/>
+        /// agentID, corporationID, allianceID, or factionID) and typeIDs to <para/>
+        /// query. A hard maximum of 250 IDs passed in. Might change in the <para/>
+        /// future depending on live results. Any instances of repeated ids in <para/>
+        /// the string will throw immediate errors with no returns. If an ID is<para/>
+        /// passed into the call that does not resolve the call will not return <para/>
+        /// any results regardless of the validity of other ids. Trailing commas<para/>
         /// on the ids input will throw now errors.</param>
         /// <returns></returns>
         public XmlDocument CharacterName(string ids)
@@ -2375,12 +2402,12 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a list of error codes that can be returned by the EVE API 
-        /// servers. Error types are broken into the following categories 
-        /// according to their first digit:
-        /// 1xx - user input
-        /// 2xx - authentication
-        /// 5xx - server
+        /// Returns a list of error codes that can be returned by the EVE API <para/>
+        /// servers. Error types are broken into the following categories <para/>
+        /// according to their first digit:<para/>
+        /// 1xx - user input<para/>
+        /// 2xx - authentication<para/>
+        /// 5xx - server<para/>
         /// 9xx - miscellaneous
         /// </summary>
         /// <returns></returns>
@@ -2408,9 +2435,9 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns global stats on the factions in factional warfare including
-        /// the number of pilots in each faction, the number of systems they 
-        /// control, and how many kills and victory points each and all factions
+        /// Returns global stats on the factions in factional warfare including<para/>
+        /// the number of pilots in each faction, the number of systems they <para/>
+        /// control, and how many kills and victory points each and all factions<para/>
         /// obtained yesterday, in the last week, and total.
         /// </summary>
         /// <returns></returns>
@@ -2521,11 +2548,11 @@ namespace CS_EVE_XML_API
         /// <summary>
         /// Returns the name associated with a typeID.
         /// </summary>
-        /// <param name="ids">Comma-separated list of typeIDs to query
-        /// A hard maximum of 250 IDs passed in. Any instances of repeated ids 
-        /// in the string will throw immediate errors with no returns. If an ID
-        /// is passed into the call that does not resolve the call will not 
-        /// return any results regardless of the validity of other ids. Trailing 
+        /// <param name="ids">Comma-separated list of typeIDs to query<para/>
+        /// A hard maximum of 250 IDs passed in. Any instances of repeated ids <para/>
+        /// in the string will throw immediate errors with no returns. If an ID<para/>
+        /// is passed into the call that does not resolve the call will not <para/>
+        /// return any results regardless of the validity of other ids. Trailing <para/>
         /// commas on the ids input will throw now errors.</param>
         /// <returns></returns>
         public XmlDocument TypeName(string ids)
@@ -2585,8 +2612,8 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the number of kills in solarsystems within the last hour. 
-        /// Only solar system where kills have been made are listed, so assume 
+        /// Returns the number of kills in solarsystems within the last hour. <para/>
+        /// Only solar system where kills have been made are listed, so assume <para/>
         /// zero in case the system is not listed.
         /// </summary>
         /// <returns></returns>
@@ -2614,7 +2641,7 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Only systems with jumps are shown, if the system has no jumps, it's
+        /// Only systems with jumps are shown, if the system has no jumps, it's<para/>
         /// not listed.
         /// </summary>
         /// <returns></returns>
@@ -2641,9 +2668,9 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns a list of contestable solarsystems and the NPC faction
-        /// currently occupying them. It should be noted that this file 
-        /// only returns a non-zero ID if the occupying faction is not the 
+        /// Returns a list of contestable solarsystems and the NPC faction<para/>
+        /// currently occupying them. It should be noted that this file <para/>
+        /// only returns a non-zero ID if the occupying faction is not the <para/>
         /// sovereign faction.
         /// </summary>
         /// <returns></returns>
@@ -2674,11 +2701,11 @@ namespace CS_EVE_XML_API
          */
 
         /// <summary>
-        /// Returns the System.Drawing.Image of the specified inventory item.
+        /// Returns the System.Drawing.Image of the specified inventory item.<para/>
         /// Requires adding the System.Drawing assembly and namespace.
         /// </summary>
         /// <param name="typeID">ID of the inventory item.</param>
-        /// <param name="size">Size of the image. Valid values are 30, 32, 
+        /// <param name="size">Size of the image. Valid values are 30, 32, <para/>
         /// 64, 128, 256, and 512.</param>
         /// <returns></returns>
         public Image ImageRender(string typeID, int size)
@@ -2706,7 +2733,7 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the System.Drawing.Image of the specified inventory item.
+        /// Returns the System.Drawing.Image of the specified inventory item.<para/>
         /// Requires adding the System.Drawing assembly and namespace.
         /// </summary>
         /// <param name="typeID">ID of the inventory item.</param>
@@ -2736,11 +2763,11 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the System.Drawing.Image of the specified alliance.
+        /// Returns the System.Drawing.Image of the specified alliance.<para/>
         /// Requires adding the System.Drawing assembly and namespace.
         /// </summary>
         /// <param name="allianceID">ID of the alliance.</param>
-        /// <param name="size">Size of the portrait. Valid values are 30, 32, 
+        /// <param name="size">Size of the portrait. Valid values are 30, 32, <para/>
         /// 64, 128.</param>
         /// <returns></returns>
         public Image ImageAlliance(string allianceID, int size)
@@ -2767,11 +2794,11 @@ namespace CS_EVE_XML_API
         }
 
         /// <summary>
-        /// Returns the System.Drawing.Image of the specified corporation.
+        /// Returns the System.Drawing.Image of the specified corporation.<para/>
         /// Requires adding the System.Drawing assembly and namespace.
         /// </summary>
         /// <param name="corporationID">ID of the corporation.</param>
-        /// <param name="size">Size of the portrait. Valid values are 30, 32, 
+        /// <param name="size">Size of the portrait. Valid values are 30, 32, <para/>
         /// 64, 128, 256.</param>
         /// <returns></returns>
         public Image ImageCorporation(string corporationID, int size)
@@ -2798,11 +2825,11 @@ namespace CS_EVE_XML_API
         }
                 
         /// <summary>
-        /// Returns the System.Drawing.Image of the specified character.
+        /// Returns the System.Drawing.Image of the specified character.<para/>
         /// Requires adding the System.Drawing assembly and namespace.
         /// </summary>
         /// <param name="characterID">ID of the character.</param>
-        /// <param name="size">Valid sizes are 30, 32, 64, 128, 200, 
+        /// <param name="size">Valid sizes are 30, 32, 64, 128, 200, <para/>
         /// 256, 512, or 1024.</param>
         /// <returns></returns>
         public Image ImageCharacter(string characterID, int size)
