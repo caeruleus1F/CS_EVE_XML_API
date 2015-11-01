@@ -17,6 +17,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Net;
+using System.Drawing;
+using System.IO;
 
 namespace CS_EVE_XML_API
 {
@@ -1195,17 +1197,289 @@ namespace CS_EVE_XML_API
          * Corporation API Endpoints
          */
 
+
+
         /*
          * EVE API Endpoints
          */
+
+
 
         /*
          * Map API Endpoints
          */
 
+        /// <summary>
+        /// Returns a list of solarsystems and what faction or 
+        /// alliance controls them.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument Sovereignty()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/map/Sovereignty.xml.aspx");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the number of kills in solarsystems within the last hour. 
+        /// Only solar system where kills have been made are listed, so assume 
+        /// zero in case the system is not listed.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument Kills()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/map/Kills.xml.aspx");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Only systems with jumps are shown, if the system has no jumps, it's
+        /// not listed.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument Jumps()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/map/Jumps.xml.aspx");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of contestable solarsystems and the NPC faction
+        /// currently occupying them. It should be noted that this file 
+        /// only returns a non-zero ID if the occupying faction is not the 
+        /// sovereign faction.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument FacWarSystems()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/map/FacWarSystems.xml.aspx");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return xmldoc;
+        }
+
         /*
          * Misc API Endpoints
          */
+
+        /// <summary>
+        /// Returns the System.Drawing.Image of the specified inventory item.
+        /// Requires adding the System.Drawing assembly and namespace.
+        /// </summary>
+        /// <param name="typeID">ID of the inventory item.</param>
+        /// <param name="size">Size of the image. Valid values are 30, 32, 
+        /// 64, 128, 256, and 512.</param>
+        /// <returns></returns>
+        public Image ImageRender(string typeID, int size)
+        {
+            Image img = null;
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("http://image.eveonline.com/Render/")
+                .Append(typeID).Append("_").Append(size.ToString())
+                .Append(".png");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                byte[] ba = web.DownloadData(sb.ToString());
+                img = Image.FromStream(new MemoryStream(ba));
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return img;
+        }
+
+        /// <summary>
+        /// Returns the System.Drawing.Image of the specified inventory item.
+        /// Requires adding the System.Drawing assembly and namespace.
+        /// </summary>
+        /// <param name="typeID">ID of the inventory item.</param>
+        /// <param name="size">Size of the portrait. Valid values are 32, and 64.</param>
+        /// <returns></returns>
+        public Image ImageTypeIcon(string typeID, int size)
+        {
+            Image img = null;
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("http://image.eveonline.com/InventoryType/")
+                .Append(typeID).Append("_").Append(size.ToString())
+                .Append(".png");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                byte[] ba = web.DownloadData(sb.ToString());
+                img = Image.FromStream(new MemoryStream(ba));
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return img;
+        }
+
+        /// <summary>
+        /// Returns the System.Drawing.Image of the specified alliance.
+        /// Requires adding the System.Drawing assembly and namespace.
+        /// </summary>
+        /// <param name="allianceID">ID of the alliance.</param>
+        /// <param name="size">Size of the portrait. Valid values are 30, 32, 
+        /// 64, 128.</param>
+        /// <returns></returns>
+        public Image ImageAlliance(string allianceID, int size)
+        {
+            Image img = null;
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("http://image.eveonline.com/Alliance/")
+                .Append(allianceID).Append("_").Append(size.ToString())
+                .Append(".png");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                byte[] ba = web.DownloadData(sb.ToString());
+                img = Image.FromStream(new MemoryStream(ba));
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return img;
+        }
+
+        /// <summary>
+        /// Returns the System.Drawing.Image of the specified corporation.
+        /// Requires adding the System.Drawing assembly and namespace.
+        /// </summary>
+        /// <param name="corporationID">ID of the corporation.</param>
+        /// <param name="size">Size of the portrait. Valid values are 30, 32, 
+        /// 64, 128, 256.</param>
+        /// <returns></returns>
+        public Image ImageCorporation(string corporationID, int size)
+        {
+            Image img = null;
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("http://image.eveonline.com/Corporation/")
+                .Append(corporationID).Append("_").Append(size.ToString())
+                .Append(".png");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                byte[] ba = web.DownloadData(sb.ToString());
+                img = Image.FromStream(new MemoryStream(ba));
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return img;
+        }
+                
+        /// <summary>
+        /// Returns the System.Drawing.Image of the specified character.
+        /// Requires adding the System.Drawing assembly and namespace.
+        /// </summary>
+        /// <param name="characterID">ID of the character.</param>
+        /// <param name="size">Valid sizes are 30, 32, 64, 128, 200, 
+        /// 256, 512, or 1024.</param>
+        /// <returns></returns>
+        public Image ImageCharacter(string characterID, int size)
+        {
+            Image img = null;
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("http://image.eveonline.com/Character/")
+                .Append(characterID).Append("_").Append(size.ToString())
+                .Append(".jpg");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                byte[] ba = web.DownloadData(sb.ToString());
+                img = Image.FromStream(new MemoryStream(ba));
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return img;
+        }
 
         /*
          * Server API Endpoints
