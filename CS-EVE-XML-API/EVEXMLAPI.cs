@@ -1203,7 +1203,383 @@ namespace CS_EVE_XML_API
          * EVE API Endpoints
          */
 
+        /// <summary>
+        /// Returns a list of alliances in EVE.
+        /// </summary>
+        /// <param name="alliancesOnly">Optional - pass in true for a list of
+        /// alliances without member corps.</param>
+        /// <returns></returns>
+        public XmlDocument AllianceList(bool alliancesOnly = false)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
 
+            sb.Append("https://api.eveonline.com/eve/AllianceList.xml.aspx?");
+
+            if (alliancesOnly == true)
+            {
+                sb.Append("version=1");
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of certificates in EVE.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument CertificateTree()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/CertificateTree.xml.aspx");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the ownerID for a given character, faction, alliance or 
+        /// corporation name, or the typeID for other objects such as stations,
+        /// solar systems, planets, etc.
+        /// </summary>
+        /// <param name="names">Comma-separated list of character names
+        /// to query.</param>
+        /// <returns></returns>
+        public XmlDocument CharacterID(string names)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/CertificateTree.xml.aspx?")
+                .Append("names=").Append(names);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Without a supplied API key it will return the same data as a show 
+        /// info call on the character would do in the client. With a limited 
+        /// API key it will add total skill points as well as the current ship
+        /// you are in and its name. Supplied with a full API key your account 
+        /// balance and your last known location (cached) will be added to the 
+        /// return.
+        /// </summary>
+        /// <param name="characterID">Character ID of the player.</param>
+        /// <param name="keyID">Optional - Key ID of account for authentication.
+        /// </param>
+        /// <param name="vCode">Optional - Limited or Full access API key of 
+        /// account.</param>
+        /// <returns></returns>
+        public XmlDocument CharacterInfo(string characterID, string keyID = null, string vCode = null)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/CharacterInfo.xml.aspx?")
+                .Append("&characterID=").Append(characterID);
+
+            if (keyID != null && vCode != null)
+            {
+                sb.Append("keyID=").Append(keyID)
+                .Append("&vCode=").Append(vCode);
+            }
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the name associated with an characterID.
+        /// </summary>
+        /// <param name="ids">Comma-separated list of ownerIDs (characterID, 
+        /// agentID, corporationID, allianceID, or factionID) and typeIDs to 
+        /// query. A hard maximum of 250 IDs passed in. Might change in the 
+        /// future depending on live results. Any instances of repeated ids in 
+        /// the string will throw immediate errors with no returns. If an ID is
+        /// passed into the call that does not resolve the call will not return 
+        /// any results regardless of the validity of other ids. Trailing commas
+        /// on the ids input will throw now errors.</param>
+        /// <returns></returns>
+        public XmlDocument CharacterName(string ids)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/CharacterName.xml.aspx?")
+                .Append("ids=").Append(ids);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of conquerable stations.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument ConquerableStationList()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/ConquerableStationList.xml.aspx?");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of error codes that can be returned by the EVE API 
+        /// servers. Error types are broken into the following categories 
+        /// according to their first digit:
+        /// 1xx - user input
+        /// 2xx - authentication
+        /// 5xx - server
+        /// 9xx - miscellaneous
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument ErrorList()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/ErrorList.xml.aspx?");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns global stats on the factions in factional warfare including
+        /// the number of pilots in each faction, the number of systems they 
+        /// control, and how many kills and victory points each and all factions
+        /// obtained yesterday, in the last week, and total.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument FacWarStats()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/FacWarStats.xml.aspx?");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns Factional Warfare Top 100 Stats.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument FacWarTopStats()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/FacWarTopStats.xml.aspx?");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns a list of transaction types used in the Journal Entries.
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument RefTypes()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/RefTypes.xml.aspx?");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// XML of currently in-game skills (including unpublished skills).
+        /// </summary>
+        /// <returns></returns>
+        public XmlDocument SkillTree()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/SkillTree.xml.aspx?");
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
+
+        /// <summary>
+        /// Returns the name associated with a typeID.
+        /// </summary>
+        /// <param name="ids">Comma-separated list of typeIDs to query
+        /// A hard maximum of 250 IDs passed in. Any instances of repeated ids 
+        /// in the string will throw immediate errors with no returns. If an ID
+        /// is passed into the call that does not resolve the call will not 
+        /// return any results regardless of the validity of other ids. Trailing 
+        /// commas on the ids input will throw now errors.</param>
+        /// <returns></returns>
+        public XmlDocument TypeName(string ids)
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            WebClient web = new WebClient();
+            StringBuilder sb = new StringBuilder();
+            string response = null;
+
+            sb.Append("https://api.eveonline.com/eve/TypeName.xml.aspx?")
+                .Append("ids=").Append(ids);
+
+            try
+            {
+                web.Proxy = WebRequest.DefaultWebProxy;
+                response = web.DownloadString(sb.ToString());
+                xmldoc.LoadXml(response);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return xmldoc;
+        }
 
         /*
          * Map API Endpoints
